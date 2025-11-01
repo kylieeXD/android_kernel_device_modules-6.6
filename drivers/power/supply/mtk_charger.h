@@ -196,6 +196,11 @@ struct battery_thermal_protection_data {
 	int max_charge_temp_minus_x_degree;
 };
 
+enum charger_notifier_events {
+	/* thermal board temp */
+	THERMAL_BOARD_TEMP = 0,
+};
+
 enum quick_charge_type {
 	QUICK_CHARGE_NORMAL = 0,
 	QUICK_CHARGE_FAST,
@@ -1512,4 +1517,6 @@ extern void generate_xm_single_uevent(struct mtk_charger *info,
 #define ONLINE_GET_IDX(online)		((online >> 4) & 0xf)
 #define ONLINE_GET_ATTACH(online)	(online & 0xf)
 
+extern struct srcu_notifier_head charger_notifier;
+extern int charger_notifier_call_cnain(unsigned long event,int val);
 #endif /* __MTK_CHARGER_H */

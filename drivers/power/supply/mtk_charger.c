@@ -148,6 +148,14 @@ const char *chg_get_cmd(void)
 }
 #endif
 
+SRCU_NOTIFIER_HEAD(charger_notifier);
+EXPORT_SYMBOL_GPL(charger_notifier);
+int charger_notifier_call_cnain(unsigned long event, int val)
+{
+	return srcu_notifier_call_chain(&charger_notifier, event, &val);
+}
+EXPORT_SYMBOL_GPL(charger_notifier_call_cnain);
+
 int chr_get_debug_level(void)
 {
 	struct power_supply *psy;
