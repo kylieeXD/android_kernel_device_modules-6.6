@@ -777,6 +777,7 @@ mgk_64_device_modules = [
     "drivers/spmi/spmi-mtk-mpu.ko",
     "drivers/spmi/spmi-mtk-pmif.ko",
     "drivers/tee/teeperf/teeperf.ko",
+    "drivers/tee/mitee/mitee.ko",
     "drivers/thermal/mediatek/backlight_cooling.ko",
     "drivers/thermal/mediatek/board_temp.ko",
     "drivers/thermal/mediatek/charger_cooling.ko",
