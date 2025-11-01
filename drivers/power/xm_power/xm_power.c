@@ -349,7 +349,7 @@ static void print_all_task_stack(void)
 	delta_time = ktime_to_ms(delta_time);
 	rcu_read_lock();
 	if (PrevKtime != 0){
-		do_each_thread(g, p)
+		for_each_process_thread(g, p)
 		{
 		 if (!pid_entry || pid_entry->pid != p->pid){
 			pid_entry = find_or_register_pid(p);
@@ -399,7 +399,6 @@ static void print_all_task_stack(void)
 		   #endif
 		 }
 		}
-		while_each_thread(g, p);
 		get_current_timestamp("dump_top5_task");
 		for(i=0;i<5;i++){
 			UserAvgLoad = task[i].DeltaUtime*100/delta_time;
