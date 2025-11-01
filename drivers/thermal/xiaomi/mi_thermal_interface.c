@@ -19,10 +19,10 @@
 #include <linux/kernfs.h>
 #include <linux/workqueue.h>
 #include <linux/power_supply.h>
-#include "../../../../../kernel-6.1/drivers/base/base.h"
+#include "../../../../../kernel-6.6/drivers/base/base.h"
 #include "../../power/supply/mtk_charger.h"
 
-#include "../../../../../kernel-6.1/drivers/thermal/thermal_core.h"
+#include "../../../../../kernel-6.6/drivers/thermal/thermal_core.h"
 
 
 #if IS_ENABLED(CONFIG_MI_DISP_NOTIFIER)
@@ -763,7 +763,7 @@ static void create_thermal_message_node(void)
 	struct kernfs_node *sysfs_sd = NULL;
 	struct kernfs_node *thermal_sd = NULL;
 	struct kernfs_node *class_sd = NULL;
-	struct class *cls = NULL;
+	const struct class *cls = NULL;
 	struct subsys_private *cp = NULL;
 	struct kobject *kobj_tmp = NULL;
 
@@ -790,7 +790,7 @@ static void create_thermal_message_node(void)
 		}
 	}
 	if (!mi_thermal_dev.class && cls) {
-		mi_thermal_dev.class = cls;
+		mi_thermal_dev.class = (struct class *)cls;
 		mi_thermal_dev.dev = device_create(mi_thermal_dev.class, NULL, 'H', NULL, "thermal_message");
 		if (!mi_thermal_dev.dev) {
 			pr_err("%s create device dev err\n", __func__);
