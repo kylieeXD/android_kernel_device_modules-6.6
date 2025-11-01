@@ -788,6 +788,7 @@ mgk_64_device_modules = [
     "drivers/thermal/mediatek/vtskin_temp.ko",
     "drivers/thermal/mediatek/wifi_cooling.ko",
     "drivers/thermal/mediatek/cpu_isolate_cooling.ko",
+    "drivers/thermal/xiaomi/mi_thermal_interface.ko",
     "drivers/tty/serial/8250/8250_mtk.ko",
     "drivers/usb/mtu3/mtu3.ko",
     "drivers/watchdog/mtk_wdt.ko",
