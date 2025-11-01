@@ -132,7 +132,7 @@ void get_current_timestamp(char* state)
 	rtc_time64_to_tm(tv.tv_sec, &tm);
 	tv_android.tv_sec -= sys_tz.tz_minuteswest * 60;
 	rtc_time64_to_tm(tv_android.tv_sec, &tm_android);
-	pr_info("%s:%02d-%02d-%02d %02d:%02d:%02d.%03d(android time)\n",
+	pr_debug("%s:%02d-%02d-%02d %02d:%02d:%02d.%03d(android time)\n",
 		state,tm_android.tm_year + 1900,tm_android.tm_mon + 1,
 		tm_android.tm_mday, tm_android.tm_hour,
 		tm_android.tm_min, tm_android.tm_sec,
@@ -153,7 +153,7 @@ static void dump_active_wakeup_sources(void)
 	 if (ws_debug->active) {
 	  ktime_t now = ktime_get();
 	  active_time = ktime_sub(now, ws_debug->last_time);
-	  pr_info("active wake lock: %s, active_since: %lld ms , active_count: %lu\n",
+	  pr_debug("active wake lock: %s, active_since: %lld ms , active_count: %lu\n",
 		ws_debug->name,ktime_to_ms(active_time), ws_debug->active_count);
 	  active = 1;
 	 } else if (!active && (!last_activity_ws || ktime_to_ns(ws_debug->last_time) > ktime_to_ns(last_activity_ws->last_time))) {
@@ -166,11 +166,11 @@ static void dump_active_wakeup_sources(void)
 	}
 
 	if (!active && last_activity_ws)
-		pr_info("last active wakeup source: %s, last_time:%lld ms, active_count: %lu\n",
+		pr_debug("last active wakeup source: %s, last_time:%lld ms, active_count: %lu\n",
 		  last_activity_ws->name,ktime_to_ms(last_activity_ws->last_time),
 		  last_activity_ws->active_count);
 	if (!active && last_sec_activity_ws)
-		pr_info("last sec active wakeup source: %s, last_time:%lld ms, active_count: %lu\n",
+		pr_debug("last sec active wakeup source: %s, last_time:%lld ms, active_count: %lu\n",
 		  last_sec_activity_ws->name,ktime_to_ms(last_sec_activity_ws->last_time),
 		  last_sec_activity_ws->active_count);
 	wakeup_sources_read_unlock(srcuidx);
@@ -394,7 +394,7 @@ static void print_all_task_stack(void)
 			strcpy(pid_entry->comm,p->comm);
 		   #else
 		   if (p->state == TASK_RUNNING){
-			pr_info("running task, comm:%s, pid:%d, cpu_mask:%x\n",p->comm,p->pid,p->cpus_mask);
+			pr_debug("running task, comm:%s, pid:%d, cpu_mask:%x\n",p->comm,p->pid,p->cpus_mask);
 		   }
 		   #endif
 		 }
@@ -403,9 +403,8 @@ static void print_all_task_stack(void)
 		for(i=0;i<5;i++){
 			UserAvgLoad = task[i].DeltaUtime*100/delta_time;
 			KernelAvgLoad = task[i].DeltaStime*100/delta_time;
-			pr_info("Cpu usage:%d%% user + %d%% kernel, comm:%s, pid:%d, cpu_mask:%x, pcomm:%s, ppid:%d\n",
-				UserAvgLoad,KernelAvgLoad,task[i].comm,task[i].pid,
-				task[i].cpus_mask,task[i].pcomm,task[i].ppid);
+			pr_debug("Cpu usage:%d%% user + %d%% kernel, comm:%s, pid:%d, pcomm:%s, ppid:%d\n",
+				UserAvgLoad,KernelAvgLoad,task[i].comm,task[i].pid,task[i].pcomm,task[i].ppid);
 		}
 	}
 	rcu_read_unlock();
@@ -432,7 +431,7 @@ static void dump_cpu_info(void)
 
 static void power_info_dump_func(struct work_struct *work)
 {
-	pr_info("start \n");
+	pr_debug("start \n");
 	dump_active_wakeup_sources();
 	dump_cpu_info();
 	schedule_delayed_work(&power_info_dump,round_jiffies_relative(msecs_to_jiffies(wakelock_print_period_s*1000)));
@@ -442,7 +441,7 @@ static void power_info_dump_func(struct work_struct *work)
 static int __init powerdet_init(void)
 {
 	int error;
-	pr_info("start \n");
+	pr_debug("start \n");
 	hash_init(hash_table);
 
 	/*Dump power info*/
@@ -461,7 +460,7 @@ static int __init powerdet_init(void)
 
 static void __exit powerdet_exit(void)
 {
-	pr_info("powerdet_exit\n");
+	pr_debug("powerdet_exit\n");
 	cancel_delayed_work(&power_info_dump);
 }
 
