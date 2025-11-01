@@ -1,1 +1,0 @@
-../../../../vendor/xiaomi/proprietary/mifingerprint/driver/fingerprint/xiaomi_fp/fp_spi.h

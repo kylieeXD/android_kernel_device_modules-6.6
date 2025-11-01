@@ -21,7 +21,7 @@
 #include <linux/spi/spi-mem.h>
 #include <linux/dma-mapping.h>
 #include <linux/time.h>
-#include "fp_spi.h"
+#include "../input/fingerprint/xiaomi_fp/fp_spi.h"
 #include <linux/iopoll.h>
 #include <linux/arm-smccc.h>
 #include <linux/soc/mediatek/mtk_sip_svc.h>

@@ -275,6 +275,7 @@ mgk_64_device_modules = [
     "drivers/input/keyboard/mtk-kpd.ko",
     "drivers/input/keyboard/mtk-pmic-keys.ko",
     #"drivers/input/touchscreen/BoTai_Multi_Touch/BoTai_touch_one/botai_touch_one.ko",
+    "drivers/input/fingerprint/xiaomi_fp/xiaomi_spi_tee.ko",
     #"drivers/input/touchscreen/BoTai_Multi_Touch/BoTai_touch_two/botai_touch_two.ko",
     #"drivers/input/touchscreen/GT9886/gt9886.ko",
     #"drivers/input/touchscreen/GT9895/gt9895.ko",
