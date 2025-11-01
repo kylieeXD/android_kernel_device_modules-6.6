@@ -5,6 +5,7 @@
 
 
 #include "fp_driver.h"
+#include <linux/pinctrl/consumer.h>
 #define WAKELOCK_HOLD_TIME 2000	/* in ms */
 #define FP_UNLOCK_REJECTION_TIMEOUT (WAKELOCK_HOLD_TIME - 500) /*ms*/
 /*#define XIAOMI_DRM_INTERFACE_WA*/
@@ -436,7 +437,7 @@ static int fp_probe(struct platform_device *driver_device)
 	}
 
 	/* create class */
-	fp_dev->class = class_create(THIS_MODULE, FP_CLASS_NAME);
+	fp_dev->class = class_create(FP_CLASS_NAME);
 	if (IS_ERR(fp_dev->class)) {
 		pr_debug( "Failed to create class.\n" );
 		status = -ENODEV;

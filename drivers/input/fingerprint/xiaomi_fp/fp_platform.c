@@ -4,6 +4,8 @@
  */
 
 #include "fp_driver.h"
+#include <linux/pinctrl/consumer.h>
+
 /* -------------------------------------------------------------------- */
 /* fingerprint chip hardware configuration				*/
 /* -------------------------------------------------------------------- */
