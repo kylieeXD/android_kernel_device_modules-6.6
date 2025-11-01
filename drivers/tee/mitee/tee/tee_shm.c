@@ -208,7 +208,22 @@ struct tee_shm *tee_shm_register(struct tee_context *ctx, unsigned long addr,
 			kiov[i].iov_len = PAGE_SIZE;
 		}
 
-		rc = get_kernel_pages(kiov, num_pages, 0, shm->pages);
+		for (i = 0; i < num_pages; i++) {
+			if (is_vmalloc_addr(kiov[i].iov_base))
+				shm->pages[i] = vmalloc_to_page(kiov[i].iov_base);
+			else
+				shm->pages[i] = virt_to_page(kiov[i].iov_base);
+
+			if (!shm->pages[i]) {
+				rc = -EFAULT;
+				break;
+			}
+		}
+		if (i == num_pages)
+			rc = num_pages;
+		else if (rc == 0)
+			rc = -EFAULT;
+
 		kfree(kiov);
 	}
 	if (rc > 0)
