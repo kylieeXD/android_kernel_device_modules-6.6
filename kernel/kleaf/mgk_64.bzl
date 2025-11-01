@@ -721,6 +721,7 @@ mgk_64_device_modules = [
     "drivers/power/mca/mca_log.ko",
     "drivers/power/mca/mca_sysfs.ko",
     "drivers/power/mca/mca_charge_mievent.ko",
+    "drivers/power/xm_power/xm_power.ko",
     "drivers/pwm/pwm-mtk-disp.ko",
     "drivers/regulator/mt6315-regulator.ko",
     "drivers/regulator/mt6316-regulator.ko",

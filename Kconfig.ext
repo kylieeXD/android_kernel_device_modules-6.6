@@ -44,6 +44,8 @@ source "$(KCONFIG_EXT_PREFIX)drivers/power/supply/Kconfig"
 
 source "$(KCONFIG_EXT_PREFIX)drivers/power/mca/Kconfig"
 
+source "$(KCONFIG_EXT_PREFIX)drivers/power/xm_power/Kconfig"
+
 source "$(KCONFIG_EXT_PREFIX)drivers/rtc/Kconfig"
 
 source "$(KCONFIG_EXT_PREFIX)drivers/remoteproc/Kconfig"
