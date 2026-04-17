@@ -27,6 +27,8 @@
 #include "mitee_smc_notify.h"
 #include "rpc_callback.h"
 #include "dynamic_mem.h"
+#include "mitee_task.h"
+#include "mitee_proc.h"
 
 struct mutex tee_mutex;
 /*
@@ -793,8 +795,8 @@ done:
  * Returns return code from FF-A, 0 is OK
  */
 
-static int optee_ffa_do_call_with_arg(struct tee_context *ctx,
-				      struct tee_shm *shm)
+
+int optee_ffa_yielding_call_from_worker(struct tee_context *ctx, struct tee_shm *shm)
 {
 	struct ffa_send_direct_data data = {
 		.data0 = OPTEE_FFA_YIELDING_CALL_WITH_ARG,
@@ -802,16 +804,27 @@ static int optee_ffa_do_call_with_arg(struct tee_context *ctx,
 		.data2 = (u32)shm->paddr,
 		.data3 = shm->offset,
 	};
-#if 1
 	struct optee_msg_arg *rpc_arg = NULL;
-#else
-	/*removed, cause mitee do not support per-thread rpc param*/
-	struct optee_msg_arg *arg = tee_shm_get_va(shm, 0);
-	unsigned int rpc_arg_offs = OPTEE_MSG_GET_ARG_SIZE(arg->num_params);
-	struct optee_msg_arg *rpc_arg = tee_shm_get_va(shm, rpc_arg_offs);
-#endif
 
 	return optee_ffa_yielding_call(ctx, &data, rpc_arg);
+}
+EXPORT_SYMBOL_GPL(optee_ffa_yielding_call_from_worker);
+
+static int optee_ffa_do_call_with_arg(struct tee_context *ctx,
+				      struct tee_shm *shm)
+{
+	struct optee *optee = tee_get_drvdata(ctx->teedev);
+	struct mitee_task *task;
+	int ret;
+
+	task = mitee_task_alloc(optee, ctx, shm);
+	if (IS_ERR(task))
+		return PTR_ERR(task);
+
+	ret = mitee_do_call_with_task(optee, task);
+	mitee_task_free(optee, task);
+
+	return ret;
 }
 
 static struct tee_shm_pool *optee_ffa_shm_memremap(struct ffa_device *ffa_dev,
@@ -1061,6 +1074,9 @@ static const struct optee_ops optee_ffa_ops = {
 static void optee_ffa_remove(struct ffa_device *ffa_dev)
 {
 	struct optee *optee = ffa_dev->dev.driver_data;
+
+	mitee_proc_deinit(optee);
+	mitee_task_list_deinit(optee);
 
 	optee_remove_common(optee);
 
@@ -1404,6 +1420,19 @@ static int optee_ffa_probe(struct ffa_device *ffa_dev)
 		goto err_unregister_devices;
 	}
 	/* mitee log device function END */
+
+	rc = mitee_task_list_init(optee);
+	if (rc) {
+		pr_err("failed to initialize mitee task list\n");
+		goto err_unregister_devices;
+	}
+
+	rc = mitee_proc_init(optee);
+	if (rc) {
+		pr_err("failed to initialize mitee proc\n");
+		mitee_task_list_deinit(optee);
+		goto err_unregister_devices;
+	}
 
 	optee_bm_enable();
 

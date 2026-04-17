@@ -16,6 +16,12 @@
 
 #define DRIVER_NAME "optee"
 
+#define MITEE_NUM_WORKERS 2
+struct mitee_worker;
+
+struct mitee_task;
+struct proc_dir_entry;
+
 #define OPTEE_MAX_ARG_SIZE 1024
 
 /* Some Global Platform error codes used in this driver */
@@ -176,6 +182,15 @@ struct optee {
 	struct atomic_notifier_head notifier;
 	struct platform_device *mitee_memlog_pdev;
 	struct cpumask cpus_allowed;
+
+	/* Mitee custom components */
+	struct mitee_worker *workers;
+	struct idr task_idr;
+	struct mutex task_mutex;
+	struct semaphore call_sem;
+
+	struct proc_dir_entry *concurrency_proc;
+	u64 concurrency_flags;
 };
 
 struct optee_session {

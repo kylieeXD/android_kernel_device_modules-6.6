@@ -15,6 +15,8 @@ mitee-y :=	\
 	mitee_memlog.o \
 	mitee_smc_notify.o \
 	dynamic_mem.o \
+	mitee_task.o \
+	mitee_proc.o \
 	tee/tee_core.o \
 	tee/tee_shm.o \
 	tee/tee_shm_pool.o
