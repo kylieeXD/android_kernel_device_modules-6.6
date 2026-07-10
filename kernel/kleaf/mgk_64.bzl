@@ -48,12 +48,12 @@ mgk_64_kleaf_modules = [
     "//vendor/mediatek/kernel_modules/connectivity/wlan/core/gen4m/build/connac3x/eap_6653:wlan_drv_gen4m_eap_6653",
     "//vendor/mediatek/kernel_modules/connectivity/wlan/core/gen4m/build/connac3x/6991_6639_tc10sp:wlan_drv_gen4m_6991_6639_tc10sp",
     "//vendor/mediatek/kernel_modules/connectivity/wlan/core/gen4m/build/connac3x/6991_6639_new9gen2:wlan_drv_gen4m_6991_6639_new9gen2",
-    "//vendor/mediatek/kernel_modules/cpufreq_cus:cpu_freq",
-    "//vendor/mediatek/kernel_modules/cpufreq_int:cpu_hwtest",
+    #"//vendor/mediatek/kernel_modules/cpufreq_cus:cpu_freq",  # missing from tree
+    #"//vendor/mediatek/kernel_modules/cpufreq_int:cpu_hwtest",  # missing from tree
     "//vendor/mediatek/kernel_modules/fpsgo_cus:fpsgo_cus",
     "//vendor/mediatek/kernel_modules/fpsgo_int:fpsgo_int",
     "//vendor/mediatek/kernel_modules/afs_common_utils:jank_detection_common_utils",
-    "//vendor/mediatek/kernel_modules/afs_core_int:jank_detection_core_int",
+    #"//vendor/mediatek/kernel_modules/afs_core_int:jank_detection_core_int",  # missing from tree
     "//vendor/mediatek/kernel_modules/afs_core_cus:jank_detection_core_cus",
     "//vendor/mediatek/kernel_modules/gpu:gpu",
     "//vendor/mediatek/kernel_modules/hbt_driver_cus:hbt_cus",
@@ -64,20 +64,20 @@ mgk_64_kleaf_modules = [
     "//vendor/mediatek/kernel_modules/met_drv_v3:met_drv_v3",
     #"//vendor/mediatek/kernel_modules/msync2_frd_cus/build:msync2_frd_cus",
     #"//vendor/mediatek/kernel_modules/msync2_frd_int:msync2_frd_int",
-    "//vendor/mediatek/kernel_modules/mtk_input/FT3518U:ft3518u",
+    #"//vendor/mediatek/kernel_modules/mtk_input/FT3518U:ft3518u",  # missing from tree
     "//vendor/mediatek/kernel_modules/mtk_input/FT3518:ft3518",
     #"//vendor/mediatek/kernel_modules/mtk_input/GT9886:gt9886",
-    "//vendor/mediatek/kernel_modules/mtk_input/GT9916:gt9916",
-    "//vendor/mediatek/kernel_modules/mtk_input/NT36672C:nt36672c",
+    #"//vendor/mediatek/kernel_modules/mtk_input/GT9916:gt9916",  # missing from tree
+    #"//vendor/mediatek/kernel_modules/mtk_input/NT36672C:nt36672c",  # missing from tree
     "//vendor/mediatek/kernel_modules/mtk_input/NT36672C_144HZ:nt36672c_144hz",
     "//vendor/mediatek/kernel_modules/mtk_input/NT36672C_120HZ:nt36672c_120hz",
     "//vendor/mediatek/kernel_modules/mtk_input/nt36xxx_no_flash_spi:nt36xxx_no_flash_spi",
     "//vendor/mediatek/kernel_modules/mtk_input/hxchipset_hx83102p:hxchipset_hx83102p",
     "//vendor/mediatek/kernel_modules/mtk_input/TD4320:td4320",
-    "//vendor/mediatek/kernel_modules/mtk_input/ST61Y:st61y",
-    "//vendor/mediatek/kernel_modules/mtk_input/fingerprint/goodix/4.14:gf_spi_414",
-    "//vendor/mediatek/kernel_modules/mtk_input/fingerprint/goodix/5.10:gf_spi",
-    "//vendor/mediatek/kernel_modules/mtk_input/synaptics_tcm:synaptics_tcm",
+    #"//vendor/mediatek/kernel_modules/mtk_input/ST61Y:st61y",  # missing from tree
+    #"//vendor/mediatek/kernel_modules/mtk_input/fingerprint/goodix/4.14:gf_spi_414",  # missing from tree
+    #"//vendor/mediatek/kernel_modules/mtk_input/fingerprint/goodix/5.10:gf_spi",  # missing from tree
+    #"//vendor/mediatek/kernel_modules/mtk_input/synaptics_tcm:synaptics_tcm",  # missing from tree
     "//vendor/mediatek/kernel_modules/mtkcam/camsys:camsys",
     "//vendor/mediatek/kernel_modules/mtkcam/cam_cal/src_v4l2/custom:mtk_cam_cal",
     "//vendor/mediatek/kernel_modules/mtkcam/ccusys:ccusys",
@@ -104,28 +104,28 @@ mgk_64_kleaf_modules = [
     "//vendor/mediatek/kernel_modules/mtkcam/img_frm_sync:mtk-img-frm-sync",
     "//vendor/mediatek/kernel_modules/task_turbo_cus:task_turbo_cus",
     "//vendor/mediatek/kernel_modules/task_turbo_int:task_turbo_int",
-    "//vendor/xiaomi/proprietary/touch/touchfeature_v2/touch_driver:touch_driver",
-    "//vendor/xiaomi/proprietary/fingerprint:fingerprint_driver",
-    "//vendor/xiaomi/proprietary/mitee_drv:mitee",
-    "//vendor/xiaomi/proprietary/slm/kmod:kmod",
-    "//vendor/xiaomi/proprietary/miwillp/engine:miwillp",
-    "//vendor/xiaomi/proprietary/minet/driver:minet",
-    "//vendor/xiaomi/proprietary/minet/miicmpfilter:miicmpfilter",
-    "//vendor/xiaomi/proprietary/kernelmodules/hardwareinfo/kernel_module:hardwareinfo",
+    #"//vendor/xiaomi/proprietary/touch/touchfeature_v2/touch_driver:touch_driver",  # missing from tree
+    #"//vendor/xiaomi/proprietary/fingerprint:fingerprint_driver",  # missing from tree
+    #"//vendor/xiaomi/proprietary/mitee_drv:mitee",  # missing from tree
+    #"//vendor/xiaomi/proprietary/slm/kmod:kmod",  # missing from tree
+    #"//vendor/xiaomi/proprietary/miwillp/engine:miwillp",  # missing from tree
+    #"//vendor/xiaomi/proprietary/minet/driver:minet",  # missing from tree
+    #"//vendor/xiaomi/proprietary/minet/miicmpfilter:miicmpfilter",  # missing from tree
+    #"//vendor/xiaomi/proprietary/kernelmodules/hardwareinfo/kernel_module:hardwareinfo",  # missing from tree
     "//vendor/mediatek/kernel_modules/game_cus:game_cus",
     "//vendor/mediatek/kernel_modules/game_int:game_int",
-    "//vendor/xiaomi/proprietary/matt/core:matt",
-    "//vendor/xiaomi/proprietary/minet/mibbr/mibbr_mtk:mibbr",
+    #"//vendor/xiaomi/proprietary/matt/core:matt",  # missing from tree
+    #"//vendor/xiaomi/proprietary/minet/mibbr/mibbr_mtk:mibbr",  # missing from tree
 ]
 
 mgk_64_kleaf_eng_modules = [
-    "//vendor/mediatek/tests/kernel/ktf_testcase:ktf_testcase",
-    "//vendor/mediatek/tests/ktf/kernel:ktf",
+    #"//vendor/mediatek/tests/kernel/ktf_testcase:ktf_testcase",  # missing from tree
+    #"//vendor/mediatek/tests/ktf/kernel:ktf",  # missing from tree
 ]
 
 mgk_64_kleaf_userdebug_modules = [
-    "//vendor/mediatek/tests/kernel/ktf_testcase:ktf_testcase",
-    "//vendor/mediatek/tests/ktf/kernel:ktf",
+    #"//vendor/mediatek/tests/kernel/ktf_testcase:ktf_testcase",  # missing from tree
+    #"//vendor/mediatek/tests/ktf/kernel:ktf",  # missing from tree
 ]
 
 mgk_64_kleaf_user_modules = [
@@ -1163,8 +1163,8 @@ def get_overlay_modules_list():
         mgk_64_kleaf_modules.remove("//vendor/mediatek/kernel_modules/met_drv_v3:met_drv_v3")
         mgk_64_kleaf_modules.remove("//vendor/mediatek/kernel_modules/msync2_frd_cus/build:msync2_frd_cus")
         mgk_64_kleaf_modules.remove("//vendor/mediatek/kernel_modules/msync2_frd_int:msync2_frd_int")
-        mgk_64_kleaf_eng_modules.remove("//vendor/mediatek/tests/kernel/ktf_testcase:ktf_testcase")
-        mgk_64_kleaf_userdebug_modules.remove("//vendor/mediatek/tests/kernel/ktf_testcase:ktf_testcase")
+        #mgk_64_kleaf_eng_modules.remove("//vendor/mediatek/tests/kernel/ktf_testcase:ktf_testcase")  # already removed from tree
+        #mgk_64_kleaf_userdebug_modules.remove("//vendor/mediatek/tests/kernel/ktf_testcase:ktf_testcase")  # already removed from tree
         mgk_64_device_modules.remove("drivers/misc/mediatek/performance/fpsgo_v3/mtk_fpsgo.ko")
         mgk_64_device_modules.remove("drivers/misc/mediatek/performance/frs/frs.ko")
 
@@ -2219,8 +2219,8 @@ def get_overlay_modules_list():
 
     if "mt6761_overlay.config" in DEFCONFIG_OVERLAYS:
         mgk_64_kleaf_modules.append("//vendor/mediatek/kernel_modules/connectivity/wlan/core/gen4m/build/connac1x/6765:wlan_drv_gen4m_6765")
-        mgk_64_kleaf_eng_modules.remove("//vendor/mediatek/tests/kernel/ktf_testcase:ktf_testcase")
-        mgk_64_kleaf_userdebug_modules.remove("//vendor/mediatek/tests/kernel/ktf_testcase:ktf_testcase")
+        #mgk_64_kleaf_eng_modules.remove("//vendor/mediatek/tests/kernel/ktf_testcase:ktf_testcase")  # already removed from tree
+        #mgk_64_kleaf_userdebug_modules.remove("//vendor/mediatek/tests/kernel/ktf_testcase:ktf_testcase")  # already removed from tree
         mgk_64_kleaf_eng_modules.append("//vendor/mediatek/tests/kernel/ktf_testcase:ktf_testcase_k61")
         mgk_64_kleaf_userdebug_modules.append("//vendor/mediatek/tests/kernel/ktf_testcase:ktf_testcase_k61")
 
@@ -2385,8 +2385,8 @@ def get_overlay_modules_list():
         mgk_64_device_modules.remove("drivers/media/platform/mtk-vcu/mtk-vcu.ko")
         mgk_64_device_modules.remove("drivers/soc/mediatek/mtk-mmdvfs-v3.ko")
         mgk_64_device_modules.remove("drivers/misc/mediatek/qos/mtk_qos.ko")
-        mgk_64_kleaf_modules.remove("//vendor/mediatek/kernel_modules/cpufreq_cus:cpu_freq")
-        mgk_64_kleaf_modules.remove("//vendor/mediatek/kernel_modules/cpufreq_int:cpu_hwtest")
+        #mgk_64_kleaf_modules.remove("//vendor/mediatek/kernel_modules/cpufreq_cus:cpu_freq")  # already removed from tree
+        #mgk_64_kleaf_modules.remove("//vendor/mediatek/kernel_modules/cpufreq_int:cpu_hwtest")  # already removed from tree
         mgk_64_kleaf_modules.remove("//vendor/mediatek/kernel_modules/mtkcam/scpsys/mtk-aov:mtk_aov")
         mgk_64_platform_device_modules.pop("drivers/clk/mediatek/clk-chk-mt6989.ko")
         mgk_64_platform_device_modules.pop("drivers/clk/mediatek/pd-chk-mt6989.ko")
@@ -3544,8 +3544,8 @@ def get_overlay_modules_list():
         mgk_64_device_modules.append("drivers/misc/mediatek/cameraisp/dpe/camera_dpe_isp40.ko")
 
         mgk_64_device_modules.remove("drivers/misc/mediatek/mcupm/v2/mcupm.ko")
-        mgk_64_kleaf_modules.remove("//vendor/mediatek/kernel_modules/cpufreq_cus:cpu_freq")
-        mgk_64_kleaf_modules.remove("//vendor/mediatek/kernel_modules/cpufreq_int:cpu_hwtest")
+        #mgk_64_kleaf_modules.remove("//vendor/mediatek/kernel_modules/cpufreq_cus:cpu_freq")  # already removed from tree
+        #mgk_64_kleaf_modules.remove("//vendor/mediatek/kernel_modules/cpufreq_int:cpu_hwtest")  # already removed from tree
         mgk_64_device_modules.append("drivers/misc/mediatek/dcm/mt6765_dcm.ko")
         mgk_64_kleaf_modules.remove("//vendor/mediatek/kernel_modules/gpu:gpu")
         mgk_64_kleaf_modules.append("//vendor/mediatek/kernel_modules/gpu:gpu_mt6765")
