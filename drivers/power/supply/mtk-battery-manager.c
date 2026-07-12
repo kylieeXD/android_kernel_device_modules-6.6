@@ -1238,13 +1238,9 @@ static int bs_psy_get_property(struct power_supply *psy,
 				qmax += bm_update_psy_property(bm->gm2, QMAX_DESIGN);
 			}
 
-		remain_mah = remain_ui * qmax / 1000;
-		if (curr_avg != 0) {
-			time_to_full = remain_mah * 3600 / abs(curr_avg);
-
-			if (time_to_full > 24 * 3600)
-				time_to_full = 24 * 3600;
-		}
+		remain_mah = remain_ui * qmax / 10;
+		if (curr_avg != 0)
+			time_to_full = remain_mah * 3600 / curr_avg / 10;
 
 		val->intval = (time_to_full > (65535 / 60)) ? -1 : time_to_full * 60;
 		ret = 0;
