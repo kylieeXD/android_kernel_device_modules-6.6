@@ -1246,7 +1246,7 @@ static int bs_psy_get_property(struct power_supply *psy,
 				time_to_full = 24 * 3600;
 		}
 
-		val->intval = abs(time_to_full);
+		val->intval = (time_to_full > (65535 / 60)) ? -1 : time_to_full * 60;
 		ret = 0;
 		break;
 	case POWER_SUPPLY_PROP_CHARGE_FULL_DESIGN:
